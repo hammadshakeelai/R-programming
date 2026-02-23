@@ -1,0 +1,23 @@
+rm(list=ls())
+m=c(11.0,15.0,74.0,80.0,67.0,92.0,91.0,12.0,61.0,80.0,5.0,61.0,8.0,8.0,88.0,15.0,9.0,79.0,11.0,8.0,97.0,16.0,84.0,87.0,97.0,0.0,60.0,16.0,17.0,17.0,8.0,84.0,9.0,87.0,14.0,87.0,61.0,5.0);m
+#step1
+ms = sort.int(m);ms
+#step2
+range=ms[length(ms)]-ms[1];
+#step3
+k=ceiling(1+3.3*log10(range));
+#step4
+h=ceiling(range/k);
+#step5
+xint= seq(0,by=h,length.out=k+1);xint
+x.cut =cut(m,xint);x.cut
+x.freq=table(x.cut);x.freq
+cbind(x.freq)
+barplot(x.freq,
+        xlab="Class Boundaries",
+        ylab="Frequency",
+        main = "Frequency Distribution",
+        col="red",border="black",
+        ylim = c(0, max(x.freq) + 1))
+grid(nx=NA,ny=NULL)
+
